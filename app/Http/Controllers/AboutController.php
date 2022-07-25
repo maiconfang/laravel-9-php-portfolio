@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Note;
+use App\Models\About;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class NoteController extends Controller
+class AboutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,10 @@ class NoteController extends Controller
      */
     public function index()
     {
-        // $notes = Note::where('user_id', Auth::id())->latest('updated_at')->paginate(5);
-        // $notes = Auth::user()->notes()->latest('updated_at')->paginate(5);
-        $notes = Note::whereBelongsTo(Auth::user())->latest('updated_at')->paginate(5);
-        return view('notes.index')->with('notes', $notes);
+        // $abouts = About::where('user_id', Auth::id())->latest('updated_at')->paginate(5);
+        // $abouts = Auth::user()->abouts()->latest('updated_at')->paginate(5);
+        $abouts = About::whereBelongsTo(Auth::user())->latest('updated_at')->paginate(5);
+        return view('abouts.index')->with('abouts', $abouts);
     }
 
     /**
@@ -29,7 +29,7 @@ class NoteController extends Controller
      */
     public function create()
     {
-        return view('notes.create');
+        return view('abouts.create');
     }
 
     /**
@@ -41,16 +41,14 @@ class NoteController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:120',
-            'text' => 'required'
+            'title' => 'required|max:120'
         ]);
 
-        Auth::user()->notes()->create([
+        Auth::user()->abouts()->create([
             'uuid' => Str::uuid(),
-            'title' => $request->title,
-            'text' => $request->text
+            'title' => $request->title
         ]);
-        return to_route('notes.index');
+        return to_route('abouts.index');
     }
 
     /**
@@ -59,13 +57,13 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Note $note)
+    public function show(About $about)
     {
-        if(!$note->user->is(Auth::user())) {
+        if(!$about->user->is(Auth::user())) {
             return abort(403);
         }
 
-        return view('notes.show')->with('note', $note);
+        return view('abouts.show')->with('about', $about);
     }
 
     /**
@@ -74,13 +72,13 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Note $note)
+    public function edit(About $about)
     {
-        if(!$note->user->is(Auth::user())) {
+        if(!$about->user->is(Auth::user())) {
             return abort(403);
         }
 
-        return view('notes.edit')->with('note', $note);
+        return view('abouts.edit')->with('about', $about);
     }
 
     /**
@@ -90,23 +88,21 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Note $note)
+    public function update(Request $request, About $about)
     {
-        if(!$note->user->is(Auth::user())) {
+        if(!$about->user->is(Auth::user())) {
             return abort(403);
         }
 
         $request->validate([
-            'title' => 'required|max:120',
-            'text' => 'required'
+            'title' => 'required|max:120'
         ]);
 
-        $note->update([
-            'title' => $request->title,
-            'text' => $request->text
+        $about->update([
+            'title' => $request->title
         ]);
         
-        return to_route('notes.show', $note)->with('success','Note updated successfully');
+        return to_route('abouts.show', $about)->with('success','About updated successfully');
     }
 
     /**
@@ -115,14 +111,14 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Note $note)
+    public function destroy(About $about)
     {
-        if(!$note->user->is(Auth::user())) {
+        if(!$about->user->is(Auth::user())) {
             return abort(403);
         }
 
-        $note->delete();
+        $about->delete();
 
-        return to_route('notes.index')->with('success', 'Note deleted successfully');
+        return to_route('abouts.index')->with('success', 'About deleted successfully');
     }
 }

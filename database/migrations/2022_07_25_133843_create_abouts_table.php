@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('notes', function (Blueprint $table) {
-            $table->softDeletes();
+        Schema::create('abouts', function (Blueprint $table) {
+            $table->id();
+            $table->uuid('uuid');
+            $table->foreignId('user_id')->constrained();
+            $table->string('title');
+            $table->timestamps();
+
         });
     }
 
@@ -25,8 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('notes', function (Blueprint $table) {
-            $table->dropSoftDeletes();
-        });
+        Schema::dropIfExists('abouts');
     }
 };
