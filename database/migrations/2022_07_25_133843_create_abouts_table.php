@@ -18,8 +18,8 @@ return new class extends Migration
             $table->uuid('uuid');
             $table->foreignId('user_id')->constrained();
             $table->string('title');
+            $table->longText('text');
             $table->timestamps();
-
         });
     }
 

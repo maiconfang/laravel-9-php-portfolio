@@ -12,6 +12,32 @@
 
 namespace App\Models{
 /**
+ * App\Models\About
+ *
+ * @property int $id
+ * @property string $uuid
+ * @property int $user_id
+ * @property string $title
+ * @property string $text
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|About newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|About newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|About query()
+ * @method static \Illuminate\Database\Eloquent\Builder|About whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|About whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|About whereText($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|About whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|About whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|About whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|About whereUuid($value)
+ */
+	class About extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Note
  *
  * @property int $id
@@ -21,13 +47,11 @@ namespace App\Models{
  * @property string $text
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string|null $deleted_at
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|Note newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Note newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Note query()
  * @method static \Illuminate\Database\Eloquent\Builder|Note whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Note whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Note whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Note whereText($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Note whereTitle($value)

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Note;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,8 +19,15 @@ class AboutController extends Controller
     {
         // $abouts = About::where('user_id', Auth::id())->latest('updated_at')->paginate(5);
         // $abouts = Auth::user()->abouts()->latest('updated_at')->paginate(5);
+      
+     //   $abouts = About::whereBelongsTo(Auth::user())->latest('updated_at')->paginate(5);
+     //   return view('abouts.index')->with('abouts', $abouts);
+
         $abouts = About::whereBelongsTo(Auth::user())->latest('updated_at')->paginate(5);
         return view('abouts.index')->with('abouts', $abouts);
+
+    //    $notes = Note::whereBelongsTo(Auth::user())->latest('updated_at')->paginate(5);
+    //    return view('notes.index')->with('notes', $notes);
     }
 
     /**
@@ -41,12 +49,14 @@ class AboutController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:120'
+            'title' => 'required|max:120',
+            'text' => 'required'
         ]);
 
         Auth::user()->abouts()->create([
             'uuid' => Str::uuid(),
-            'title' => $request->title
+            'title' => $request->title,
+            'text' => $request->text
         ]);
         return to_route('abouts.index');
     }
@@ -95,11 +105,13 @@ class AboutController extends Controller
         }
 
         $request->validate([
-            'title' => 'required|max:120'
+            'title' => 'required|max:120',
+            'text' => 'required'
         ]);
 
         $about->update([
-            'title' => $request->title
+            'title' => $request->title,
+            'text' => $request->text
         ]);
         
         return to_route('abouts.show', $about)->with('success','About updated successfully');
