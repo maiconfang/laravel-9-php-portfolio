@@ -51,4 +51,8 @@ class User extends Authenticatable
     public function abouts() {
         return $this->hasMany(About::class);
     }
+
+    public function aboutItens() {
+        return $this->hasMany(AboutItem::class);
+    }
 }

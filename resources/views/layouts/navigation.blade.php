@@ -20,6 +20,10 @@
                         {{ __('Abouts') }}
                     </x-nav-link>
 
+                    <x-nav-link id="navigationBladeLine23" :href="route('aboutItens.index')" :active="request()->routeIs('aboutItens.index')">
+                        {{ __('About Itens') }}
+                    </x-nav-link>
+
                 </div>
             </div>
 

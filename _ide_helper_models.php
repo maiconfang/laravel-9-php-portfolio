@@ -38,6 +38,32 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\AboutItem
+ *
+ * @property int $id
+ * @property string $uuid
+ * @property int $user_id
+ * @property string $title
+ * @property string $text
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|AboutItem newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|AboutItem newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|AboutItem query()
+ * @method static \Illuminate\Database\Eloquent\Builder|AboutItem whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AboutItem whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AboutItem whereText($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AboutItem whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AboutItem whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AboutItem whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AboutItem whereUuid($value)
+ */
+	class AboutItem extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Note
  *
  * @property int $id
@@ -74,6 +100,8 @@ namespace App\Models{
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\AboutItem[] $aboutItens
+ * @property-read int|null $about_itens_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\About[] $abouts
  * @property-read int|null $abouts_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Note[] $notes
