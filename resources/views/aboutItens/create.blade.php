@@ -31,9 +31,10 @@
                     <x-select-option 
                         :arrayOptionMaiconFang="$aboutArray" 
                         :user="$user" 
-                        firstOptionSelectMaiconFang="About Maicon Fang"                       
+                        firstOptionSelectMaiconFang="About Maicon Fang"
+                        field="selectOptionBladeId"                       
                         ></x-select-option>
-                    
+              
                     <x-button class="mt-6">Save About Itens</x-button>
 
                 </form>

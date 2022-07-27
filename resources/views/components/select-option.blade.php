@@ -1,4 +1,4 @@
-@props(['arrayOptionMaiconFang', 'user', 'firstOptionSelectMaiconFang'])
+@props(['arrayOptionMaiconFang', 'user', 'firstOptionSelectMaiconFang', 'field' => ''])
 
 <div class="w-full mt-6"> 
     <!--  <strong class="block font-medium text-sm text-gray-700">About:</strong> -->
@@ -10,4 +10,6 @@
      </select>
  </div>
 
-
+@error($field)
+    <div class="text-red-600 text-sm">{{ $message }}</div>
+@enderror

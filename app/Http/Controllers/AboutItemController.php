@@ -52,8 +52,11 @@ class AboutItemController extends Controller
         $request->validate([
             'title' => 'required|max:120',
             'text' => 'required',
-            'selectOptionBladeId' => 'required'
-        ]);
+            'selectOptionBladeId' => 'required|numeric',
+        ],
+    [
+        'selectOptionBladeId.required' => 'The about field is required.',
+    ]);
 
         Auth::user()->aboutItens()->create([
             'uuid' => Str::uuid(),
