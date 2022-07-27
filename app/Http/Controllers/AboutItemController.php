@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\AboutItem;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +29,12 @@ class AboutItemController extends Controller
      */
     public function create()
     {
-        return view('aboutItens.create');
+        echo("<script>console.log('PHP - Maicon Fang: function create ');</script>");
+
+        $user = User::findOrFail(1);
+        $aboutArray = About::all();
+        
+        return view('aboutItens.create', compact('aboutArray', 'user'));
     }
 
     /**
@@ -38,16 +45,21 @@ class AboutItemController extends Controller
      */
     public function store(Request $request)
     {
-        echo("<script>console.log('PHP - Maicon Fang: " . $request . "');</script>");
+       // echo("<script>console.log('PHP - Maicon Fang: ');</script>");
+
+        echo "console.log( 'Debug Objects: " . $request . "' );";
+        //echo("<script>console.log('PHP - Maicon Fang: " . $request . "');</script>");
         $request->validate([
             'title' => 'required|max:120',
-            'text' => 'required'
+            'text' => 'required',
+            'selectOptionBladeId' => 'required'
         ]);
 
         Auth::user()->aboutItens()->create([
             'uuid' => Str::uuid(),
             'title' => $request->title,
-            'text' => $request->text
+            'text' => $request->text,
+            'about_id' => $request->selectOptionBladeId,
         ]);
         return to_route('aboutItens.index');
     }
@@ -60,6 +72,8 @@ class AboutItemController extends Controller
      */
     public function show(AboutItem $aboutIten)
     {
+        echo("<script>console.log('PHP - Maicon Fang: ');</script>");
+
         if(!$aboutIten->user->is(Auth::user())) {
             return abort(403);
         }
@@ -75,6 +89,8 @@ class AboutItemController extends Controller
      */
     public function edit(AboutItem $aboutIten)
     {
+        echo("<script>console.log('PHP - Maicon Fang: ');</script>");
+
         if(!$aboutIten->user->is(Auth::user())) {
             return abort(403);
         }
@@ -91,6 +107,8 @@ class AboutItemController extends Controller
      */
     public function update(Request $request, AboutItem $aboutIten)
     {
+        echo("<script>console.log('PHP - Maicon Fang: ');</script>");
+
         if(!$aboutIten->user->is(Auth::user())) {
             return abort(403);
         }
@@ -124,4 +142,6 @@ class AboutItemController extends Controller
 
         return to_route('aboutItens.index')->with('success', 'About Itens deleted successfully');
     }
+
+ 
 }

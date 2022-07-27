@@ -47,6 +47,7 @@ namespace App\Models{
  * @property string $text
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\About|null $about
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|AboutItem newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|AboutItem newQuery()

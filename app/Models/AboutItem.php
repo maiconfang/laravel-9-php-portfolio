@@ -21,4 +21,8 @@ class AboutItem extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+
+    public function about() {
+        return $this->belongsTo(About::class);
+    }
 }

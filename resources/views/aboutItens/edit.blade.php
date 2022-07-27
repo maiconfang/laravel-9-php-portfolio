@@ -27,6 +27,12 @@
                         placeholder="Start typing here..."
                         class="w-full mt-6"
                         :value="@old('text', $aboutIten->text)"></x-textarea>
+
+                    <x-select-option 
+                        :arrayOptionMaiconFang="$aboutArray" 
+                        :user="$user" 
+                        valueSelectMaiconFang="About Maicon Fang"> 
+                    </x-select-option>
                     
                     <x-button class="mt-6">Save About Itens</x-button>
                 </form>
