@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Note;
+use App\Models\User;
 use App\Models\About;
 use App\Models\AboutItem;
-use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,12 +30,9 @@ class AboutItemController extends Controller
      */
     public function create()
     {
-        echo("<script>console.log('PHP - Maicon Fang: function create ');</script>");
-
-        $user = User::findOrFail(1);
-        $aboutArray = About::all();
+        $aboutArray = About::where('user_id', Auth::id())->get();
         
-        return view('aboutItens.create', compact('aboutArray', 'user'));
+        return view('aboutItens.create', compact('aboutArray'));
     }
 
     /**
@@ -98,7 +96,9 @@ class AboutItemController extends Controller
             return abort(403);
         }
 
-        return view('aboutItens.edit')->with('aboutIten', $aboutIten);
+        $aboutArray = About::where('user_id', Auth::id())->get();
+
+        return view('aboutItens.edit', compact('aboutArray'))->with('aboutIten', $aboutIten);
     }
 
     /**

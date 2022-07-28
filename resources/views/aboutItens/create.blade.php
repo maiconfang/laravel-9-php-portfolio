@@ -30,7 +30,6 @@
 
                     <x-select-option 
                         :arrayOptionMaiconFang="$aboutArray" 
-                        :user="$user" 
                         firstOptionSelectMaiconFang="About Maicon Fang"
                         field="selectOptionBladeId"                       
                         ></x-select-option>
