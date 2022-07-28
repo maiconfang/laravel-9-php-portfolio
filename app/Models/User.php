@@ -6,7 +6,6 @@ use App\Models\Note;
 use App\Models\About;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -54,5 +53,9 @@ class User extends Authenticatable
 
     public function aboutItens() {
         return $this->hasMany(AboutItem::class);
+    }
+
+    public function projects() {
+        return $this->hasMany(Project::class);
     }
 }

@@ -43,15 +43,17 @@ namespace App\Models{
  * @property int $id
  * @property string $uuid
  * @property int $user_id
+ * @property int $about_id
  * @property string $title
  * @property string $text
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\About|null $about
+ * @property-read \App\Models\About $about
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|AboutItem newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|AboutItem newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|AboutItem query()
+ * @method static \Illuminate\Database\Eloquent\Builder|AboutItem whereAboutId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|AboutItem whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|AboutItem whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|AboutItem whereText($value)
@@ -91,6 +93,18 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Project
+ *
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|Project newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Project newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Project query()
+ */
+	class Project extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\User
  *
  * @property int $id
@@ -109,6 +123,8 @@ namespace App\Models{
  * @property-read int|null $notes_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Project[] $projects
+ * @property-read int|null $projects_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Sanctum\PersonalAccessToken[] $tokens
  * @property-read int|null $tokens_count
  * @method static \Database\Factories\UserFactory factory(...$parameters)

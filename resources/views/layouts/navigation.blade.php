@@ -24,6 +24,10 @@
                         {{ __('About Itens') }}
                     </x-nav-link>
 
+                    <x-nav-link id="navigationBladeLine27" :href="route('projects.index')" :active="request()->routeIs('projects.index')">
+                        {{ __('Projects') }}
+                    </x-nav-link>
+
                 </div>
             </div>
 
@@ -72,12 +76,20 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('notes.index')" :active="request()->routeIs('notes.index')">
+            <x-responsive-nav-link id="navigationBladeLine79" :href="route('notes.index')" :active="request()->routeIs('notes.index')">
                 {{ __('Notes') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('abouts.index')" :active="request()->routeIs('abouts.index')">
+            <x-responsive-nav-link id="navigationBladeLine83" :href="route('abouts.index')" :active="request()->routeIs('abouts.index')">
                 {{ __('Abouts') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link id="navigationBladeLine87" :href="route('aboutItens.index')" :active="request()->routeIs('aboutItens.index')">
+                {{ __('About Itens') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link id="navigationBladeLine91" :href="route('projects.index')" :active="request()->routeIs('projects.index')">
+                {{ __('Projects') }}
             </x-responsive-nav-link>
 
         </div>
