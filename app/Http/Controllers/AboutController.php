@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\AboutItem;
 use App\Models\Note;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -147,27 +148,9 @@ class AboutController extends Controller
      */
     public function publicMethod()
     {
-        echo("<script>console.log('PHP - Maicon Fang: public function indexPublic ');</script>");
-        // $notes = Note::whereBelongsTo(Auth::user())->latest('updated_at')->paginate(5);
-       //  $notes = Note::latest()->limit(5)->get();
-       //$notes = Note::latest('updated_at')->paginate(1);
-       // $notes = Note::selectRaw('id', 'uuid', 'user_id', 'title', 'text', 'created_at', 'updated_at')->paginate(2);
+       
+       $aboutItens = AboutItem::paginate(20);
 
-       $abouts = About::paginate(20); //1 page with 10 products
-
-       //echo("<script>console.log('PHP: " . $notes . "');</script>");
-   //   echo '<pre>'; print_r($notes); echo '</pre>';
-    //   foreach($notes['data'] as $result) {
-        //echo $result['id'], '<br>';
-    //    echo '<pre>'; print_r($result); echo '</pre>';
-    //}
-
-//        foreach($notes as $value){
-//            echo $value."<br />"."<br />"."<br />";
-//        }
-        //$this->middleware('auth')->except("publicMethod");
- //       $this->middleware('auth', ['except' => ['publicMethod']]);
-
-        return view('abouts.public')->with('abouts', $abouts);
+        return view('abouts.public')->with('aboutItens', $aboutItens);
     }
 }

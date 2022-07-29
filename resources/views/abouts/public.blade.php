@@ -8,21 +8,21 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            @forelse ($abouts as $about)
+            @forelse ($aboutItens as $about)
                 <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
+                    
                     <h2 class="font-bold text-2xl">
-                        <a>{{ $about->title }}</a>
+                        <a>{{ $about->about->title }}</a>
                     </h2>
-                    <p class="mt-2">
-                        {{ Str::limit($about->text, 200) }}
-                    </p>
-                    <span class="block mt-4 text-sm opacity-70">{{ $about->updated_at->diffForHumans() }}</span>
+
+                    <p class="mt-6 whitespace-pre-wrap">{{ $about->text }}</p>
+                   
                 </div>
             @empty
-            <p>You have no abouts yet.</p>
+            <p>You have no aboutItens yet.</p>
             @endforelse
 
-            {{ $abouts->links() }}
+            {{ $aboutItens->links() }}
         </div>
     </div>
 </x-app-layout>

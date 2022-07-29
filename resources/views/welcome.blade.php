@@ -29,14 +29,12 @@
                             </a>
                         </div>
 
-                        <!-- test begin -->
-                        <div class="shrink-0 flex items-center">
-                            <a id="welcomeBladeLine43" id="welcomeBladeLine52" href="/publicNotesUrl" class="text-sm text-gray-700 underline">About Public - MF</a>
 
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex items-center">
+                            <a id="welcomeBladeLine43" id="welcomeBladeLine52" href="/publicAboutUrl" class="text-sm text-gray-700 underline">About Public - MF</a>
                         </div>
                         
 
-                         <!-- -->
 
                     </div>       
 

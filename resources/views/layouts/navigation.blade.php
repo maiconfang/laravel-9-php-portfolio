@@ -32,7 +32,7 @@
 
                     @endif
 
-                    <x-nav-link id="navigationBladeLine27"  href="/publicNotesUrl">
+                    <x-nav-link id="navigationBladeLine27"  href="/publicAboutUrl">
                         {{ __('Abouttt pbliccc') }}
                     </x-nav-link>
 

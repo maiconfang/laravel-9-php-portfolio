@@ -22,7 +22,7 @@ Route::resource('/aboutItens', AboutItemController::class)->middleware(['auth'])
 
 Route::resource('/projects', ProjectController::class)->middleware(['auth']);
 
-Route::get('/publicNotesUrl', [AboutController::class, 'publicMethod']);
+Route::get('/publicAboutUrl', [AboutController::class, 'publicMethod']);
 
 
 require __DIR__.'/auth.php';

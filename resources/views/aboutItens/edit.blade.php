@@ -22,7 +22,7 @@
                     
                     <x-textarea
                         name="text"
-                        rows="3"
+                        rows="15"
                         field="text"
                         placeholder="Start typing here..."
                         class="w-full mt-6"
