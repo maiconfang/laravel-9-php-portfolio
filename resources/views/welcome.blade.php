@@ -29,6 +29,15 @@
                             </a>
                         </div>
 
+                        <!-- test begin -->
+                        <div class="shrink-0 flex items-center">
+                            <a id="welcomeBladeLine43" id="welcomeBladeLine52" href="/publicNotesUrl" class="text-sm text-gray-700 underline">About Public - MF</a>
+
+                        </div>
+                        
+
+                         <!-- -->
+
                     </div>       
 
                 </div>
@@ -40,9 +49,9 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a id="welcomeBladeLine52" href="{{ route('notes.index') }}" class="text-sm text-gray-700 underline">Notes</a>
+                        <a id="welcomeBladeLine43" id="welcomeBladeLine52" href="{{ route('notes.index') }}" class="text-sm text-gray-700 underline">Notes</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+                        <a id="welcomeBladeLine45" href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
                         @if (Route::has('register'))
                             <a id="welcomeBladeLine28"  href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
@@ -50,9 +59,27 @@
                     @endauth
                 </div>
             @endif
-            <h1 id="welcomeBladeLine33" class="text-5xl">
-                Maicon Fang Portfolio - In construction ^-^
-            </h1>
+
+            <div class="py-12">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        
+                        <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
+     
+                            <p class="mt-2">
+                                Hi, my name is Maicon Fang and I am a Software Developer (Java, Angular CLI, PHP), and a Test Analyst.
+
+                                I am a Software Developer with more than 3 years of experience and I have worked with technologies such as Angular, Java, MySQL, SQL Server, and Postgresql. 
+                                I am also familiar with HP Quality Center, Selenium Web Driver, Oracle, JUnit, and HTML. I have worked with front-end and back-end development,
+                                software build and deploy, and troubleshooting. I hold a Bachelor’s Degree in Information Systems and a Post-Graduation in Soft ware Engineering. 
+                                I consider myself a dedicated, communicative, and outgoing person.
+                            </p>
+     
+                        </div>
+                    
+                </div>
+            </div>
+
+           
            
         </div>
 
