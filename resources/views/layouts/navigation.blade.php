@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('notes.index') }}">
+                    <a href="/">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
                 </div>
@@ -32,8 +32,12 @@
 
                     @endif
 
-                    <x-nav-link id="navigationBladeLine27"  href="/publicAboutUrl">
+                    <x-nav-link id="navigationBladeLine35"  href="/publicAboutUrl">
                         {{ __('Abouttt pbliccc') }}
+                    </x-nav-link>
+
+                    <x-nav-link id="navigationBladeLine38"  href="/publicProjectUrl">
+                        {{ __('Project ttt pbliccc') }}
                     </x-nav-link>
 
                 </div>
@@ -47,16 +51,20 @@
                             
                             @if(Auth::user())
                                 <div>{{ Auth::user()->name }}</div>
+
+                                <div class="ml-1">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+
                             @else   
-                                <div>Maicon Fang - Static</div>
+                                <a id="welcomeBladeLine45" href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+                                <a id="welcomeBladeLine28"  href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
                             @endif
 
 
-                            <div class="ml-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
+
                         </button>
                     </x-slot>
 

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\AboutItem;
-use App\Models\Note;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -141,7 +140,7 @@ class AboutController extends Controller
         return to_route('abouts.index')->with('success', 'About deleted successfully');
     }
 
-        /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

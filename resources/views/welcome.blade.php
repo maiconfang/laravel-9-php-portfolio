@@ -24,16 +24,18 @@
                     <div id="welcomeBladeLine24" class="flex">
                         <!-- Logo -->
                         <div class="shrink-0 flex items-center">
-                            <a href="{{ route('notes.index') }}">
+                            <a href="/">
                                 <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                             </a>
                         </div>
 
+                        <x-nav-link id="welcomeBladeLine32" href="/publicAboutUrl">
+                            {{ __('About Public - MF') }}
+                        </x-nav-link>
 
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex items-center">
-                            <a id="welcomeBladeLine43" id="welcomeBladeLine52" href="/publicAboutUrl" class="text-sm text-gray-700 underline">About Public - MF</a>
-                        </div>
-                        
+                        <x-nav-link id="welcomeBladeLine36" href="/publicProjectUrl">
+                            {{ __('Project Public - MF') }}
+                        </x-nav-link>
 
 
                     </div>       
@@ -47,7 +49,17 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a id="welcomeBladeLine43" id="welcomeBladeLine52" href="{{ route('notes.index') }}" class="text-sm text-gray-700 underline">Notes</a>
+                    <x-nav-link id="navigationBladeLine15" :href="route('notes.index')" :active="request()->routeIs('notes.index')">
+                        {{ __('Notes') }}
+                    </x-nav-link>
+
+                    <x-nav-link id="navigationBladeLine15" :href="route('abouts.index')" :active="request()->routeIs('abouts.index')">
+                        {{ __('Abouts') }}
+                    </x-nav-link>
+
+                    <x-nav-link id="navigationBladeLine15" :href="route('projects.index')" :active="request()->routeIs('projects.index')">
+                        {{ __('Projects') }}
+                    </x-nav-link>
                     @else
                         <a id="welcomeBladeLine45" href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
@@ -63,14 +75,17 @@
         
                         <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
      
-                            <p class="mt-2">
-                                Hi, my name is Maicon Fang and I am a Software Developer (Java, Angular CLI, PHP), and a Test Analyst.
-
-                                I am a Software Developer with more than 3 years of experience and I have worked with technologies such as Angular, Java, MySQL, SQL Server, and Postgresql. 
-                                I am also familiar with HP Quality Center, Selenium Web Driver, Oracle, JUnit, and HTML. I have worked with front-end and back-end development,
-                                software build and deploy, and troubleshooting. I hold a Bachelor’s Degree in Information Systems and a Post-Graduation in Soft ware Engineering. 
-                                I consider myself a dedicated, communicative, and outgoing person.
-                            </p>
+                            @forelse ($aboutMe as $project)
+                            <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
+                                
+                                <h2 class="text-2xl mt-2">
+                                    <a>{{ $project->text }}</a>
+                                </h2>          
+                               
+                            </div>
+                        @empty
+                        <p>You have no projects yet.</p>
+                        @endforelse
      
                         </div>
                     

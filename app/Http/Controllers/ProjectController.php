@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth',['except'=>['publicMethod']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -122,5 +128,18 @@ class ProjectController extends Controller
         $project->delete();
 
         return to_route('projects.index')->with('success', 'Project deleted successfully');
+    }
+
+        /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function publicMethod()
+    {
+       
+       $projects = Project::paginate(5);
+
+        return view('projects.public')->with('projects', $projects);
     }
 }
