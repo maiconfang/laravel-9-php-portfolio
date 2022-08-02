@@ -52,7 +52,7 @@ return [
             'host' => $DATABASE_URL['host'],
             'port' => $DATABASE_URL['port'],
             // 'port' => env('DB_PORT', '3306'), // localhost
-            'database' => ltrim($DATABASE_URL['path'], charlist: "/"),
+            'database' => ltrim($DATABASE_URL['path'], "/"),
             //'database' => env('DB_DATABASE', 'forge'), // localhost
             'username' => $DATABASE_URL['user'], 
             //'username' => env('DB_USERNAME', 'forge'), // localhost
