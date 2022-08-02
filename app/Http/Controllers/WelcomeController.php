@@ -36,10 +36,6 @@ class WelcomeController extends Controller
       ->where('abouts.title', 'like', '%' . 'About Me' . '%')
       ->get();
 
-       echo("<script>console.log('PHP: " . $aboutMe . "');</script>");
-
-       echo("<script>console.log('PHP: " . $aboutItens . "');</script>");
-
     return view('welcome')->with('aboutMe', $aboutMe);
     }
 }

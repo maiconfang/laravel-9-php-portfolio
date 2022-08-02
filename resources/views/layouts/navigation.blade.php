@@ -14,9 +14,6 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     
                     @if(Auth::user())
-                        <x-nav-link id="navigationBladeLine15" :href="route('notes.index')" :active="request()->routeIs('notes.index')">
-                            {{ __('Notes') }}
-                        </x-nav-link>
 
                         <x-nav-link id="navigationBladeLine19" :href="route('abouts.index')" :active="request()->routeIs('abouts.index')">
                             {{ __('Abouts') }}
@@ -33,11 +30,11 @@
                     @endif
 
                     <x-nav-link id="navigationBladeLine35"  href="/publicAboutUrl">
-                        {{ __('Abouttt pbliccc') }}
+                        {{ __('About Public - MF.') }}
                     </x-nav-link>
 
                     <x-nav-link id="navigationBladeLine38"  href="/publicProjectUrl">
-                        {{ __('Project ttt pbliccc') }}
+                        {{ __('Project Public - MF.') }}
                     </x-nav-link>
 
                 </div>
@@ -59,8 +56,8 @@
                                 </div>
 
                             @else   
-                                <a id="welcomeBladeLine45" href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-                                <a id="welcomeBladeLine28"  href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                                <a id="navigationBladeLine62" href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+                                <a id="navigationBladeLine63" style="display: none; height: 100px;"  href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
                             @endif
 
 
@@ -98,9 +95,6 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link id="navigationBladeLine79" :href="route('notes.index')" :active="request()->routeIs('notes.index')">
-                {{ __('Notes') }}
-            </x-responsive-nav-link>
 
             <x-responsive-nav-link id="navigationBladeLine83" :href="route('abouts.index')" :active="request()->routeIs('abouts.index')">
                 {{ __('Abouts') }}

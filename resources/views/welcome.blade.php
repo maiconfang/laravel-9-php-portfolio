@@ -49,22 +49,19 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                    <x-nav-link id="navigationBladeLine15" :href="route('notes.index')" :active="request()->routeIs('notes.index')">
-                        {{ __('Notes') }}
-                    </x-nav-link>
 
-                    <x-nav-link id="navigationBladeLine15" :href="route('abouts.index')" :active="request()->routeIs('abouts.index')">
+                    <x-nav-link id="welcomeBladeLine56" :href="route('abouts.index')" :active="request()->routeIs('abouts.index')">
                         {{ __('Abouts') }}
                     </x-nav-link>
 
-                    <x-nav-link id="navigationBladeLine15" :href="route('projects.index')" :active="request()->routeIs('projects.index')">
+                    <x-nav-link id="welcomeBladeLine60" :href="route('projects.index')" :active="request()->routeIs('projects.index')">
                         {{ __('Projects') }}
                     </x-nav-link>
                     @else
-                        <a id="welcomeBladeLine45" href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+                        <a id="welcomeBladeLine64" href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
                         @if (Route::has('register'))
-                            <a id="welcomeBladeLine28"  href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                            <a id="welcomeBladeLine67" style="display: none; height: 100px;"  href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
                         @endif
                     @endauth
                 </div>
