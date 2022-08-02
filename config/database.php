@@ -48,16 +48,11 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            //'host' => env('DB_HOST', '127.0.0.1'), // localhost
             'host' => $DATABASE_URL["host"],
             'port' => $DATABASE_URL['port'],
-            // 'port' => env('DB_PORT', '3306'), // localhost
             'database' => ltrim($DATABASE_URL['path'], "/"),
-            //'database' => env('DB_DATABASE', 'forge'), // localhost
             'username' => $DATABASE_URL['user'], 
-            //'username' => env('DB_USERNAME', 'forge'), // localhost
             'password' => $DATABASE_URL['password'], 
-            //'password' => env('DB_PASSWORD', ''), // localhost
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
