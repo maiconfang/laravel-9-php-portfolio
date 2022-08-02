@@ -49,8 +49,8 @@ return [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
             //'host' => env('DB_HOST', '127.0.0.1'), // localhost
-            'host' => $DATABASE_URL['host'],
-            'port' => $DATABASE_URL['port'],
+            'host' => $DATABASE_URL["host"],
+            'port' => $DATABASE_URL["port"],
             // 'port' => env('DB_PORT', '3306'), // localhost
             'database' => ltrim($DATABASE_URL['path'], "/"),
             //'database' => env('DB_DATABASE', 'forge'), // localhost
